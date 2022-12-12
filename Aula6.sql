@@ -1,0 +1,23 @@
+-- INNER JOIN 
+
+-- EXEMPLO 1: FAÇA UMA CONSULTA QUE TENHA COMO RESULTADO TODAS AS COLUNAS DA RABELA DE PEDIDOS
+-- E AS COLUNAS DA LOJA
+
+SELECT * FROM pedidos;
+SELECT * FROM lojas;
+
+-- TABBELA A --> TABELA FATO --> TABELA PEDIDOS
+-- TABELA B --> TABEÇA DIMENSÃO --> TABELA LOJAS
+
+-- CHAVE PRIMÁRIA --> ID_LOJA
+-- CHAVE ESTRANGEIRA --> ID_LOJA
+
+SELECT 
+	pedidos.*,
+    lojas.Loja,
+    lojas.Gerente,
+    lojas.Telefone
+FROM pedidos
+INNER JOIN lojas 
+	ON pedidos.ID_Loja = lojas.ID_Loja;
+
